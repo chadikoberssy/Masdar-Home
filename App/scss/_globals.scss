@@ -1,0 +1,104 @@
+@import "./mixins";
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "DIN Pro", sans-serif;
+  font-size: $body-font-size;
+  background-color: $almost-white;
+}
+
+.noscroll {
+  overflow: hidden;
+  position: fixed;
+}
+
+.container {
+  max-width: 1130px !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 200ms ease-in-out;
+}
+
+.overlay {
+  width: 100%;
+  height: 150%;
+  background-color: $almost-black;
+  opacity: 0;
+  position: absolute;
+  transition: all ease-in-out 300ms;
+  display: none;
+
+  @include breakpoint-down(medium) {
+    display: block;
+  }
+}
+
+.section-title {
+  padding-top: 80px;
+  text-transform: uppercase;
+
+  h2 {
+    padding-bottom: 32px;
+  }
+
+  p {
+    padding-bottom: 32px;
+  }
+
+  @include breakpoint-down(medium) {
+    padding-top: 40px;
+  }
+}
+
+.gray-text {
+  color: #45413f;
+}
+
+.green-text {
+  color: $olive-green-80;
+}
+
+.dark-green-text {
+  color: #00343a;
+}
+
+.dark-blue-text {
+  color: #232a32;
+}
+
+.lower-case {
+  text-transform: none;
+}
+
+.button-green {
+  font-size: 1rem;
+  text-transform: uppercase;
+  background-color: #007778;
+  border: 1px #007778 solid;
+  color: $white;
+  border-radius: 10px;
+  transition: all 200ms ease;
+
+  &:hover {
+    background-color: #00343A;
+    border: 1px #00343A solid;
+  }
+}

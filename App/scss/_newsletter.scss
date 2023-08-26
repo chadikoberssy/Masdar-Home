@@ -1,0 +1,28 @@
+@import "./mixins";
+
+.newsletter {
+  background-color: #B0D6DB;
+  padding: 32px 0;
+
+  .form-content {
+    .input-email {
+      height: 56px;
+      background-color: transparent;
+      border: #00343A 2px solid;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #00343A;
+      transition: all 200ms;
+
+      &::placeholder {
+        color: #004747;
+      }
+
+      &:focus {
+        box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+        outline: 0;
+      }
+    }
+  }
+}

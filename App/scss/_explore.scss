@@ -1,0 +1,21 @@
+@import "./mixins";
+
+.explore {
+  background-image: url("./../images/Explore/explore-bg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-position: bottom;
+
+  .explore-content {
+    height: 886px;
+
+    @include breakpoint-down(small) {
+      height: 500px;
+    }
+
+    .explore-cta button{
+      padding: 8px 52px;
+      margin-bottom: 65px;
+    }
+  }
+}

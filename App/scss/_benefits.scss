@@ -1,0 +1,88 @@
+@import "./mixins";
+
+.benefits {
+  background-image: url("./../images/benefits/benefits-image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-position: 500%;
+  // height: 1144px;
+
+  .benefits-text-side {
+    background-color: $white;
+
+    @include breakpoint-down(small){
+      text-align: center;
+    }
+
+    .benefits-text-side-top {
+      padding: 48px 0 48px 32px;
+      max-width: 540px;
+
+      @include breakpoint-down(small){
+        padding: 48px 30px 48px 30px;
+      }
+
+      h6 {
+        color: #51565c;
+        padding-bottom: 32px;
+      }
+
+      h1 {
+        color: #45413f;
+        padding-bottom: 32px;
+      }
+
+      p {
+        color: #45413f;
+      }
+    }
+
+    .benefits-text-side-middle {
+      padding: 56px 60px 56px 55px;
+      background-color: rgba(0, 168, 169, 0.1);
+    }
+
+    .benefits-text-side-bottom-left {
+      padding: 56px 60px 56px 55px;
+      background-color: rgba(0, 168, 169, 0.15);
+    }
+
+    .benefits-text-side-bottom-right {
+      padding: 56px 60px 56px 55px;
+      background-color: rgba(0, 168, 169, 0.20);
+    }
+
+    .benefits-box-title {
+      align-items: center;
+
+      .benefits-box-title-left {
+        // padding-right: 24px;
+        color: $green;
+      }
+
+      .benefits-box-title-right {
+        color: #007778;
+        padding: 0;
+      }
+    }
+
+    .benefits-box-text {
+      font-size: 1rem;
+      color: #232a32;
+    }
+
+    .benefits-box-cta {
+      color: $green;
+
+      i {
+        transition: transform 200ms ease;
+      }
+
+      &:hover {
+        i {
+          transform: translate(5px, 0);
+        }
+      }
+    }
+  }
+}

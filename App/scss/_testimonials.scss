@@ -1,0 +1,169 @@
+@import "./mixins";
+
+.testimonials {
+   background-color: $white;
+}
+
+.body-slider {
+   display:flex;
+   flex-direction:row;
+   justify-content:center;
+   align-items:center;
+   overflow:hidden;
+   padding-bottom: 80px;
+   
+   
+   transition:.25s;
+   
+   .credit {
+      position: absolute;
+      bottom:20px;
+      left:20px;
+      color:inherit;
+   }
+   .options {
+      display:flex;
+      flex-direction:row;
+      align-items:stretch;
+      overflow:hidden;
+
+      min-width:600px;
+      width:calc(100% - 100px);
+      
+      height:260px;
+      
+      // @for $i from 1 through 4 {
+      //    @media screen and (max-width:798px - $i*80) {
+      //       min-width:600px - $i*80;
+      //       .option:nth-child(#{6-$i}) {
+      //          display:none;
+      //       }
+      //    }
+      // }
+      
+      .option {
+         position: relative;
+         overflow:hidden;
+
+         min-width:60px;
+         margin:0 10px;
+         //border:0px solid --defaultColor;
+
+         // background:var(--optionBackground, var(--defaultBackground, #E6E9ED));
+         background-size:auto 120%;
+         background-position:left;
+
+         cursor: pointer;
+
+         transition:opacity 500ms ease-in-out;
+
+         // @for $i from 1 through length($optionDefaultColours) {
+         //    &:nth-child(#{$i}) {
+         //       --defaultBackground:#{nth($optionDefaultColours, $i)};
+         //    }
+         // }
+         &.active {
+            flex-grow:15;
+            // transform:scale(1);
+            
+            min-width:70%;
+            margin:0 10px;
+            transition:opacity .5s ease-out;
+            // border-radius:40px;
+            
+            // background-size:auto 100%;
+            
+            .label {
+               
+               .info {
+                  opacity:1;
+                  transition: all ease 500ms;
+               }
+            }
+            /*&:active {
+               transform:scale(0.9);
+            }*/
+         }
+         &:not(.active) {
+            flex-grow:2;
+            
+            // border-radius:30px;
+            .person-image {
+               img {
+                  filter: grayscale(100%);
+               }
+            }
+            .testimonial-img-overlay {
+               background-color: rgba(0, 168, 169, 0.2);
+               content: " ";
+               width: 100%;
+               height: 260px;
+               position: absolute;
+               z-index: 5;
+            }
+            .label {
+               .info {
+                  opacity:0;
+                  transition: all ease 500ms;
+               }
+            }
+         }
+         
+
+         .person-image {
+            width: 200px;
+            overflow: hidden;
+
+            
+            img {
+               height: 260px;
+               width: 100%;
+               object-fit: cover;
+               object-position: center;
+            }
+         }
+         
+         .label {
+            display:flex;
+
+            // height:40px;
+            transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+
+            
+            .info {
+               display:flex;
+               flex-direction:column;
+               justify-content:center;
+               
+               margin-left:10px;
+               
+               .quote {
+                  color: #00A8A9;
+                  font-size: 3rem;
+               }
+               
+               
+               // white-space: pre;
+               >div {
+                  position: relative;
+                  
+                  transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
+               }
+               .main {
+                  font-size:1rem;
+                  padding-bottom: 24px;
+               }
+               .name {
+                  font-size: 1.5rem;
+                  font-weight: 400;
+               }
+               .position {
+                  font-size: 0.75rem;
+                  color: #756E6A;
+                  font-weight: 400;
+               }
+            }
+         }
+      }
+   }
+}

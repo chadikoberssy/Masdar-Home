@@ -1,0 +1,84 @@
+@import "./mixins";
+
+.footer {
+  background-color: $olive-green-80;
+  color: $white;
+
+  .top-footer {
+    padding: 80px 0;
+
+    @include breakpoint-down(small) {
+      padding: 40px 0;
+    }
+    
+    .footer-logo {
+      width: 168px;
+      padding-top: 10px;
+    }
+
+    .footer-contact-info {
+      a {
+        padding-bottom: 16px;
+
+        i {
+          padding-right: 5px;
+          width: 25px;
+        }
+      }
+    }
+  }
+
+  .bottom-footer {
+    
+
+    background-image: url("./../images/footer/footer-buildings.png");
+    // background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    padding-bottom: 80px;
+    height: 374px;
+
+    
+
+    @include breakpoint-down(medium) {
+      padding-bottom: 40px;
+    }
+
+    .copyright,
+    .policy {
+      font-weight: 300;
+    }
+
+    .social-links {
+      img {
+        width: 16px;
+        margin: 0 5px;
+      }
+    }
+  }
+}
+
+.footer-text-fontsize {
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.footer-title-fontsize {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.footer-items-padding {
+  padding: 10px 20px;
+
+  @include breakpoint-down(small) {
+    padding: 5px 10px;
+  }
+}
+
+a {
+  &:hover {
+    color: #B0D6DB;
+  }
+}

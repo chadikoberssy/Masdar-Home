@@ -1,0 +1,47 @@
+@import "./mixins";
+
+.discover-image-left {
+  overflow: hidden;
+  img{
+    height: 548px;
+    width: 90%;
+    object-fit: cover;
+
+    @include breakpoint-down(medium) {
+      width: 100%;
+    }
+  }
+}
+
+.discover-text-right {
+  max-width: 567px;
+
+  @include breakpoint-down(medium) {
+    padding: 0 30px;
+  }
+
+  @include breakpoint-down(small) {
+    text-align: center;
+  }
+
+  .discover-cta {
+    text-transform: uppercase;
+    font-size: 1rem;
+    border: #232A32 1px solid;
+    color: #232A32;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 9px 24px 9px 16px;
+    transition: all 200ms ease;
+
+    i {
+      padding-right: 8px;
+    }
+
+    &:hover {
+      background-color: #232A32;
+      color: $white;
+    }
+  }
+}
+

@@ -1,0 +1,267 @@
+@import "./mixins";
+
+.navigation-bar {
+
+  .navigation-header {
+    background-color: #007778;
+    padding: 8px 0 10px 0;
+
+    .nav-social-links {
+      a {
+        img {
+          width: 16px;
+        }
+      }
+    }
+
+    .nav-header-buttons {
+      color: $white;
+      text-transform: uppercase;
+
+      a {
+        font-size: 1rem;
+      }
+
+      .language-changer {
+        font-weight: 300;
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  .navbar-custom {
+    background-color: transparent;
+  }
+
+  .navbar-brand img {
+    width: 119px;
+    transition: all 200ms ease-in-out;
+  }
+
+  .navbar {
+    transition: all ease-in-out 200ms;
+    padding: 15px 0;
+
+    @include breakpoint-up(large) {
+      &:hover {
+        background-color: #2E5264;
+        
+  
+        .navbar-brand {
+          img {
+            filter: brightness(0) invert(1);
+          }
+        }
+  
+        .navbar-items {
+          .nav-item {
+            .nav-link {
+              color: $white;
+            }
+          }
+          .navbar-right-buttons {
+            .search-button {
+              color: $white;
+            }
+  
+            .register-button {
+              border: 1px solid $white;
+              background-color: transparent;
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+     
+    .navbar-items {
+      padding: 0 0 0 50px;
+
+      @include breakpoint-down(medium) {
+        padding: 60px 20px 20px 30px;
+      }
+
+      .nav-item {
+        .nav-link:hover {
+          text-decoration: underline;
+          text-underline-offset: 10px;
+          transition: all ease-in-out 200ms;
+          
+
+          .caret {
+            path {
+              stroke: $almost-black;
+              transition: all ease-in-out 200ms;
+            }
+          }
+        }
+
+        .nav-link {
+          text-align: center;
+          color: $olive-green-80;
+          font-size: 0.875rem;
+          font-weight: 400;
+          padding: 10px;
+        }
+
+        .dropdown-menu {
+          border: none;
+          .dropdown-item {
+            color: $medium-gray;
+            font-size: 0.9rem;
+          }
+        }
+
+        .dropdown-toggle::after {
+          display: none;
+        }
+
+        .dropdown-toggle[aria-expanded="true"] {
+          color: $almost-black;
+          .caret {
+            transform: rotate(180deg);
+
+            path {
+              stroke: $almost-black;
+            }
+          }
+        }
+        /*for animation*/
+        .dropdown-toggle {
+          .caret {
+            transition: all ease-in-out 200ms;
+          }
+        }
+      }
+
+      .navbar-right-buttons {
+        button {
+          font-size: 1rem;
+          color: $medium-gray;
+
+          @include breakpoint-down(medium) {
+            width: 100%;
+            display: block;
+          }
+
+          
+        }
+
+        .search-button {
+          color: $olive-green-100;
+        }
+
+        .register-button {
+          text-transform: uppercase;
+          border: 1px solid $light-green;
+          border-radius: 10px;
+          background-color: $light-green;
+          padding: 10px 24px;
+          font-weight: 700;
+          color: $green;
+
+          &:hover {
+            color: #2E5264;
+            border: 1px solid $white;
+            background-color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint-down(medium) {
+  .navbar-toggler {
+    z-index: 11;
+    border: none;
+    color: $almost-black;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  /* Define the shape and color of the hamburger lines */
+  .navbar-toggler span {
+    display: block;
+    background-color: $olive-green-100;
+    height: 3px;
+    border-radius: 5px;
+    width: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    left: 0;
+    opacity: 1;
+    transition: all 0.35s ease-out;
+    transform-origin: center left;
+  }
+
+  /* top line needs a little padding */
+  .navbar-toggler span:nth-child(1) {
+    margin-top: 0.3em;
+  }
+
+  /**
+ * Animate collapse into X.
+ */
+
+  /* top line rotates 45 degrees clockwise and moves up and in a bit to close the center of the X in the center of the button */
+  .navbar-toggler:not(.collapsed) span:nth-child(1) {
+    transform: translate(15%, -100%) rotate(45deg);
+  }
+  /* center line goes transparent */
+  .navbar-toggler:not(.collapsed) span:nth-child(2) {
+    opacity: 0;
+  }
+  /* bottom line rotates 45 degrees counter clockwise, in, and down a bit to close the center of the X in the center of the button  */
+  .navbar-toggler:not(.collapsed) span:nth-child(3) {
+    transform: translate(15%, 100%) rotate(-45deg);
+  }
+
+  /**
+ * Animate collapse open into hamburger menu
+ */
+
+  /* top line moves back to initial position and rotates back to 0 degrees */
+  .navbar-toggler span:nth-child(1) {
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  /* middle line goes back to regular color and opacity */
+  .navbar-toggler span:nth-child(2) {
+    opacity: 1;
+  }
+  /* bottom line goes back to initial position and rotates back to 0 degrees */
+  .navbar-toggler span:nth-child(3) {
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+
+  .navbar-collapse {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-top: 70px;
+    width: 70%;
+    height: 100%;
+    background-color: $white;
+    z-index: 10;
+  }
+
+  .navbar-collapse.collapsing {
+    right: -75%;
+    transition: height 0s ease;
+  }
+
+  .navbar-collapse.show {
+    right: 0;
+    transition: right 300ms ease-in-out;
+  }
+
+  .navbar-toggler.collapsed ~ .navbar-collapse {
+    transition: right 500ms ease-in-out;
+  }
+}

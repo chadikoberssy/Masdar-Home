@@ -1,0 +1,70 @@
+@import "./mixins";
+
+.welcome {
+  background-image: url("./../images/welcome/welcome-bg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 963px;
+
+  @include breakpoint-down(small) {
+    height: 900px;
+  }
+
+  .overlay-welcome {
+    position: absolute;
+    top: 961px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 963px;
+    background-color: #1B313B;
+    opacity: 0.9;
+    z-index: 1;
+
+    @include breakpoint-down(small){
+      height: 900px;
+      top: 659px;
+    }
+  }
+
+  .welcome-text {
+    padding-top: 100px;
+    color: #ffffff;
+    box-sizing: border-box;
+    z-index: 1;
+
+    h6 {
+      padding-bottom: 32px;
+
+      .welcome-text-sub {
+        background-color: #00A8A9;
+        padding: 5px 12px;
+      }
+    }
+
+    h1 {
+      padding-bottom: 72px;
+
+      @include breakpoint-down(small) {
+        padding-bottom: 20px;
+      }
+
+      .green-text {
+        color: #54C5C5;
+      }
+    }
+
+    @include breakpoint-down(small) {
+      text-align: center;
+    }
+  }
+
+  .welcome-description {
+    z-index: 1;
+    color: #C4D4DC;
+
+    @include breakpoint-down(small) {
+      text-align: center;
+    }
+  }
+}

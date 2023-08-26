@@ -1,0 +1,129 @@
+@import "./mixins";
+
+.testimonials {
+  background-color: $white;
+  padding-bottom: 80px;
+
+  .slider {
+    width: calc(100% - 100px);
+    margin: auto;
+    overflow: hidden;
+    height: 260px;
+    gap: 10px;
+
+    @include breakpoint-down(medium) {
+      height: auto;
+      overflow: auto;
+    }
+
+    .option {
+      flex: 0 0 auto;
+      position: relative;
+      overflow: hidden;
+
+      .person-image {
+        width: 200px;
+        overflow: hidden;
+
+        img {
+          height: 260px;
+          width: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      .label {
+
+        .info {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          margin-left: 10px;
+
+          @include breakpoint-down(small) {
+            margin: 0;
+          }
+
+          .quote {
+            color: #00a8a9;
+            font-size: 3rem;
+          }
+
+          .main {
+            font-size: 1rem;
+          }
+          .name {
+            font-size: 1.5rem;
+            font-weight: 400;
+          }
+          .position {
+            font-size: 0.75rem;
+            color: #756e6a;
+            font-weight: 400;
+          }
+        }
+      }
+
+      &.active {
+        width: 70%;
+        // transition: all ease-in-out 500ms;
+        // transition-delay: 100ms;
+
+        @include breakpoint-down(medium) {
+          width: 100%;
+        }
+
+        .label {
+          .info {
+            opacity: 1;
+            transition: all ease 500ms;
+            transition-delay: 200ms;
+          }
+        }
+      }
+
+      &:not(.active) {
+        width: 13%;
+
+        @include breakpoint-down(medium) {
+          width: 100%;
+        }
+
+        .person-image {
+          img {
+            filter: grayscale(100%);
+
+            @include breakpoint-down(medium) {
+              filter: none;
+            }
+          }
+        }
+        .testimonial-img-overlay {
+          background-color: rgba(0, 168, 169, 0.2);
+          content: " ";
+          width: 100%;
+          height: 260px;
+          position: absolute;
+          z-index: 5;
+          left: 0;
+
+          @include breakpoint-down(medium) {
+            display: none;
+          }
+        }
+        .label {
+          .info {
+            opacity: 0;
+
+            @include breakpoint-down(medium) {
+              opacity: 1;
+            }
+          }
+        }
+      }
+      
+    }
+  }
+}

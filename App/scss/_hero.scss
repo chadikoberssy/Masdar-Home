@@ -1,0 +1,66 @@
+@import "./mixins";
+
+.hero {
+  background-image: url("./../images/hero/Banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 840px;
+
+  @include breakpoint-down(small){
+    height: 540px;
+  }
+
+  .overlay-hero {
+    position: absolute;
+    top: 121px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 840px;
+    background-image: linear-gradient(to bottom, #00afaa33, #000000);
+    opacity: 0.6;
+    z-index: 1;
+
+    @include breakpoint-down(small){
+      top: 119px;
+      height: 540px;
+    }
+  }
+
+  .hero-text {
+    padding-top: 350px;
+    color: $white;
+    z-index: 2;
+    box-sizing: border-box;
+
+    @include breakpoint-down(small) {
+      padding-top: 50px;
+      text-align: center;
+    }
+
+    h6 {
+      padding-bottom: 60px;
+    }
+
+    h1 {
+      padding-bottom: 30px;
+    }
+
+    .hero-cta {
+      text-transform: uppercase;
+      border-radius: 10px;
+      padding: 10px 24px;
+      background-color: transparent;
+      border: 1px $white solid;
+      color: $white;
+      font-size: 1rem;
+      transition: all 200ms ease-in-out;
+
+      &:hover {
+        color: #2E5264;
+        border: 1px solid $white;
+        background-color: $white;
+      }
+    }
+  }
+}
